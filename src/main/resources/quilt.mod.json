@@ -1,0 +1,40 @@
+{
+	"schema_version": 1,
+	"quilt_loader": {
+		"group": "potato.garden",
+		"id": "possessed_golems",
+		"version": "${version}",
+		"metadata": {
+			"name": "Possessed Golems",
+			"description": "Causes golems spawned with Jack o'Lantern's to be possessed.",
+			"contributors": {
+				"Potatoboy9999": "Owner"
+			},
+			"contact": {
+				"issues": "https://github.com/QuiltMC/quilt-template-mod/issues",
+				"sources": "https://github.com/QuiltMC/quilt-template-mod"
+			},
+			"icon": "assets/possessed_golems/icon.png"
+		},
+		"intermediate_mappings": "net.fabricmc:intermediary",
+		"entrypoints": {
+			"init": "garden.potato.possessed_golems.PossessedGolems",
+			"client_init": "garden.potato.possessed_golems.client.PossessedGolemsClient"
+		},
+		"depends": [
+			{
+				"id": "quilt_loader",
+				"versions": ">=0.17.0-"
+			},
+			{
+				"id": "quilted_fabric_api",
+				"versions": ">=4.0.0-"
+			},
+			{
+				"id": "minecraft",
+				"versions": ">=1.19.2"
+			}
+		]
+	},
+	"mixin": "possessed_golems.mixins.json"
+}

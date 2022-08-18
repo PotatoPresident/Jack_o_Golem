@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "garden.potato.possessed_golems.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "CarvedPumpkinBlockMixin",
+    "IronGolemEntityMixin",
+    "SnowGolemEntityMixin"
+  ],
+  "client": [
+    "client.SnowmanPumpkinFeatureRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+	}
+}
