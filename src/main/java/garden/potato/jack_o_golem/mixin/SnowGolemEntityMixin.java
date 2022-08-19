@@ -1,7 +1,7 @@
-package garden.potato.possessed_golems.mixin;
+package garden.potato.jack_o_golem.mixin;
 
-import garden.potato.possessed_golems.PossesableGolem;
-import garden.potato.possessed_golems.TargetAllGoal;
+import garden.potato.jack_o_golem.PossesableGolem;
+import garden.potato.jack_o_golem.TargetAllGoal;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
@@ -32,24 +32,24 @@ public abstract class SnowGolemEntityMixin extends PathAwareEntity implements Po
 	}
 
 	@Inject(method = "initDataTracker", at = @At("RETURN"))
-	private void possessedGolems$addDataTracker(CallbackInfo ci) {
+	private void jackOGolem$addDataTracker(CallbackInfo ci) {
 		this.dataTracker.startTracking(POSSESSED, false);
 	}
 
 	@Inject(method = "sheared", at = @At("HEAD"))
-	private void possessedGolems$sheared(CallbackInfo ci) {
+	private void jackOGolem$sheared(CallbackInfo ci) {
 		if (isPossessed()) {
 			this.setPossessed(false);
 		}
 	}
 
 	@Inject(method = "writeCustomDataToNbt", at = @At("RETURN"))
-	private void possessedGolems$writeCustomDataToNbt(NbtCompound nbt, CallbackInfo ci) {
+	private void jackOGolem$writeCustomDataToNbt(NbtCompound nbt, CallbackInfo ci) {
 		nbt.putBoolean("Possessed", this.isPossessed());
 	}
 
 	@Inject(method = "readCustomDataFromNbt", at = @At("RETURN"))
-	private void possessedGolems$readCustomDataFromNbt(NbtCompound nbt, CallbackInfo ci) {
+	private void jackOGolem$readCustomDataFromNbt(NbtCompound nbt, CallbackInfo ci) {
 		this.setPossessed(nbt.getBoolean("Possessed"));
 	}
 

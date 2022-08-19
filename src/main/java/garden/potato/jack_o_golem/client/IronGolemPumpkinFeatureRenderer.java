@@ -1,6 +1,6 @@
-package garden.potato.possessed_golems.client;
+package garden.potato.jack_o_golem.client;
 
-import garden.potato.possessed_golems.PossesableGolem;
+import garden.potato.jack_o_golem.PossesableGolem;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.MinecraftClient;

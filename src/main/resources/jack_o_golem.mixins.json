@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "garden.potato.possessed_golems.mixin",
+  "package": "garden.potato.jack_o_golem.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "CarvedPumpkinBlockMixin",

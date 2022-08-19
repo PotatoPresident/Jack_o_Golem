@@ -1,4 +1,4 @@
-package garden.potato.possessed_golems;
+package garden.potato.jack_o_golem;
 
 public interface PossesableGolem {
 	boolean isPossessed();

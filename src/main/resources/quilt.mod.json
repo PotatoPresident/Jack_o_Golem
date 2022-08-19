@@ -2,7 +2,7 @@
 	"schema_version": 1,
 	"quilt_loader": {
 		"group": "potato.garden",
-		"id": "possessed_golems",
+		"id": "jack_o_golem",
 		"version": "${version}",
 		"metadata": {
 			"name": "Possessed Golems",
@@ -18,8 +18,8 @@
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
-			"init": "garden.potato.possessed_golems.PossessedGolems",
-			"client_init": "garden.potato.possessed_golems.client.PossessedGolemsClient"
+			"init": "garden.potato.jack_o_golem.JackOGolem",
+			"client_init": "garden.potato.jack_o_golem.client.JackOGolemClient"
 		},
 		"depends": [
 			{
@@ -36,5 +36,5 @@
 			}
 		]
 	},
-	"mixin": "possessed_golems.mixins.json"
+	"mixin": "jack_o_golem.mixins.json"
 }

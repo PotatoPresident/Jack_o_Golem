@@ -1,7 +1,7 @@
-package garden.potato.possessed_golems.mixin;
+package garden.potato.jack_o_golem.mixin;
 
-import garden.potato.possessed_golems.PossesableGolem;
-import garden.potato.possessed_golems.TargetAllGoal;
+import garden.potato.jack_o_golem.PossesableGolem;
+import garden.potato.jack_o_golem.TargetAllGoal;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.Shearable;
 import net.minecraft.entity.data.DataTracker;
@@ -42,19 +42,19 @@ public abstract class IronGolemEntityMixin extends PathAwareEntity implements Po
 	}
 
 	@Inject(method = "initDataTracker", at = @At("RETURN"))
-	private void possessedGolems$addDataTracker(CallbackInfo ci) {
+	private void jackOGolem$addDataTracker(CallbackInfo ci) {
 		this.dataTracker.startTracking(POSSESSED, false);
 	}
 
 	@Inject(method = "canTarget", at = @At("HEAD"), cancellable = true)
-	private void possessedGolems$targetPlayer(EntityType<?> type, CallbackInfoReturnable<Boolean> cir) {
+	private void jackOGolem$targetPlayer(EntityType<?> type, CallbackInfoReturnable<Boolean> cir) {
 		if (isPossessed()) {
 			cir.setReturnValue(super.canTarget(type));
 		}
 	}
 
 	@Inject(method = "interactMob", at = @At("HEAD"), cancellable = true)
-	private void possessedGolems$interactMob(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
+	private void jackOGolem$interactMob(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
 		ItemStack itemStack = player.getStackInHand(hand);
 		if (itemStack.isOf(Items.SHEARS) && this.isShearable()) {
 			this.sheared(SoundCategory.PLAYERS);
@@ -68,12 +68,12 @@ public abstract class IronGolemEntityMixin extends PathAwareEntity implements Po
 	}
 
 	@Inject(method = "writeCustomDataToNbt", at = @At("RETURN"))
-	private void possessedGolems$writeCustomDataToNbt(NbtCompound nbt, CallbackInfo ci) {
+	private void jackOGolem$writeCustomDataToNbt(NbtCompound nbt, CallbackInfo ci) {
 		nbt.putBoolean("Possessed", this.isPossessed());
 	}
 
 	@Inject(method = "readCustomDataFromNbt", at = @At("RETURN"))
-	private void possessedGolems$readCustomDataFromNbt(NbtCompound nbt, CallbackInfo ci) {
+	private void jackOGolem$readCustomDataFromNbt(NbtCompound nbt, CallbackInfo ci) {
 		this.setPossessed(nbt.getBoolean("Possessed"));
 	}
 

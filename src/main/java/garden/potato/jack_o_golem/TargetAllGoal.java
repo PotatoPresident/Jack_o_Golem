@@ -1,4 +1,4 @@
-package garden.potato.possessed_golems;
+package garden.potato.jack_o_golem;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.TargetGoal;

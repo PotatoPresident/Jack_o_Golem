@@ -1,6 +1,6 @@
-package garden.potato.possessed_golems.mixin;
+package garden.potato.jack_o_golem.mixin;
 
-import garden.potato.possessed_golems.PossesableGolem;
+import garden.potato.jack_o_golem.PossesableGolem;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.CarvedPumpkinBlock;
 import net.minecraft.entity.Entity;
@@ -19,14 +19,14 @@ public abstract class CarvedPumpkinBlockMixin {
 	private boolean spawnedJackOLantern = false;
 
 	@Inject(method = "trySpawnEntity", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;setBlockState(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;I)Z"))
-	private void possessedGolems$checkPossessed(World world, BlockPos pos, CallbackInfo ci) {
+	private void jackOGolem$checkPossessed(World world, BlockPos pos, CallbackInfo ci) {
 		if (world.getBlockState(pos).isOf(Blocks.JACK_O_LANTERN)) {
 			spawnedJackOLantern = true;
 		}
 	}
 
 	@ModifyArg(method = "trySpawnEntity", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;spawnEntity(Lnet/minecraft/entity/Entity;)Z"))
-	private Entity possessedGolems$spawnPossessed(Entity entity) {
+	private Entity jackOGolem$spawnPossessed(Entity entity) {
 		if (spawnedJackOLantern && entity instanceof PossesableGolem golem) {
 			golem.setPossessed(true);
 			spawnedJackOLantern = false;
